@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-mbxg3-e8(vd!$d^l#f$(p!evo8shpbf98dlxvvbsrju^-pqar7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nabeelcms.herokuapp.com']
 
 
 # Application definition
