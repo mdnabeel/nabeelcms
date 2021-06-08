@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mbxg3-e8(vd!$d^l#f$(p!evo8shpbf98dlxvvbsrju^-pqar7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nabeelcms.herokuapp.com']
 
