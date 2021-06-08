@@ -1,0 +1,142 @@
+{% load static %}
+
+<header>
+<div class="container-fluid">
+<div class="myclass row pt-4 pb-4">
+      <div class="col-md-4 col-sm-4">
+      <a class="navbar-brand px-5 logo">
+        <img src="{% static 'image/samsung_logo.png' %}"></img>
+      </a>
+      </div>
+
+      <div class="col-md-4 col-sm-4 px-1">
+            <a class="mybrand navbar-brand fw-bold">Complaint Management System</a>
+      </div>
+
+      <div class="mybutton col-md-4 col-sm-4 pt-2">
+      <i class="fa fa-user fa-sm mr-4" aria-hidden="true"><a class="fs-6 ml-2">{{request.user.first_name}}</a></i>
+      <a class="btn btn-success px-3" href="{% url 'dashboard'%}"><i class="fas fa-home" aria-hidden="true"></i>
+            <strong>Home</strong></a>
+      <a class="mob btn btn-danger px-3" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+            <strong>Logout</strong></a>
+      
+      </div>
+
+</div>
+</div>
+
+</div>
+</header>
+
+
+
+
+
+
+
+{% comment %} 
+<div class="mb-5 bodo ">
+<div class="container pt-4 pb-4">
+  <div class="row">
+    <div class="col-sm">
+       <a class="navbar-brand px-3">
+        <img src="{% static 'image/samsung_logo.png' %}"></img>
+      </a>
+    </div>
+    <div class="col-sm">
+     <a class="navbar-brand fw-bold fs-4">Complaint Management System</a>
+    </div>
+    <div class="col-sm">
+      <a class=" btn btn-success px-3" href="{% url 'dashboard'%}"><i class="fas fa-home" aria-hidden="true"></i>
+            <strong>Home</strong></a>
+
+      <a class=" btn btn-danger px-3" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+            <strong>Logout</strong>
+      </a>
+      <div class="col-sm ml-5 mt-2">
+      <i class="fa fa-user fa-sm" aria-hidden="true"><a class="ml-3 fs-6">Operator</a></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div> {% endcomment %}
+
+
+
+
+
+
+
+
+{% comment %} 
+
+
+<header class="pb-4 pt-3">
+  <div class="container">
+    <div class="logo-box">
+      <a class="navbar-brand px-5">
+        <img src="{% static 'image/samsung_logo.png' %}">
+      </a>
+    </div>
+    <nav>
+    <ul class="list-inline">
+      <li class="display:flex justify-content:center"><a class="navbar-brand fw-bold fs-5">Complaint Management System</a></li>
+      <li>
+      
+      <i class="fa fa-user fa-sm" aria-hidden="true">Operator</i>
+      <a class=" btn btn-success px-3" href="{% url 'dashboard'%}"><i class="fas fa-home" aria-hidden="true"></i>
+            <strong>Home</strong></a>
+
+      <a class=" btn btn-danger px-3" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+            <strong>Logout</strong>
+      </a>
+      
+      </li>
+       </ul>
+  
+  </nav>
+  </div>
+</header> {% endcomment %}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+<header class="mb-5 pb-4 pt-4">
+   <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand px-5">
+        <img src="{% static 'image/samsung_logo.png' %}"></img>
+      </a>
+
+
+
+      <a class="navbar-brand fw-bold fs-3">Complaint Management System</a>
+      
+      <i class="fa fa-user fa-lg" aria-hidden="true"><a>Operator</a>
+      </i>
+      <div class=" navbar-right">
+      <a class="btn btn-success px-3" href="{% url 'dashboard'%}"><i class="fas fa-home" aria-hidden="true"></i>
+            <strong>Home</strong></a>
+      <a class=" btn btn-danger px-3" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+            <strong>Logout</strong></a>
+      </div>
+    
+      {% comment %} <a class=" btn btn-success px-3" href="{% url 'dashboard'%}"><i class="fas fa-home" aria-hidden="true"></i>
+            <strong>Home</strong></a>
+      <a class=" btn btn-danger px-3 ml-4" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+            <strong>Logout</strong></a>
+</header>  {% endcomment %}

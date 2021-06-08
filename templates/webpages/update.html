@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% comment %} 
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+
+<div class="container">
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Station Name</th>
+        <th>Department</th>
+        <th>Fault Number</th>
+        <th>Fault Description</th>
+        <th>Fault Date</th>
+		<th>Current Status</th>
+        <th>Rectification Date</th>
+		<th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+       {% for fault in updatefaultdetail %}
+        <tr>
+            <td>{{fault.station}}</td>
+            <td>{{fault.department}}</td>
+            <td>{{fault.fault_no}}</td>
+                                            <td>{{fault.fault_description}}</td>
+            <td>{{fault.fault_date}}</td>
+            <td>{{fault.current_status}}</td>
+            <td>{{fault.rectification_date}}</td>
+            <td><a class="btn btn-sm btn-info" href="#">Update</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+  <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script> {% endcomment %}
+
+    <section class="searchbox container mt-5 p-2">
+      <form method="GET" action="{% url 'update' %}">
+        <div class="form-row">
+          <div class="form-group col-md-2 mr-4">
+            <select name = "station" class="form-control">
+              <option selected disabled hidden>Select Station....</option>
+              {% for station in station_filter %}
+              <option value="{{station}}">{{station}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-2 mr-4">
+            <select name="status" id="inputState" class="form-control">
+              <option selected disabled hidden>Select Status....</option>
+              {% for status in status_filter %}
+              <option Value="{{status}}">{{status}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-2 mr-4">
+            <select name="department" class="form-control">
+              <option selected disabled hidden>Select Depart....</option>
+              {% for department in department_filter %}
+              <option Value="{{department}}">{{department}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+           <div class="form-group col-md-2 mr-4">
+            <input name="keyword" class="form-control" placeholder="Enter Fault No" type="number">
+          </div>
+
+           <div class="text-center">
+
+             <button class="btn btn-md btn-info">Search</button>
+          </div>
+
+           <div class="text-center ml-4">
+              <a class="btn btn-md btn-info" href={% url 'update' %}>Refresh</a>
+
+            </div>
+
+        </div>
+
+        {% include 'message.html' %}
+        
+
+      </form>
+
+     
+    </section>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Station</th>
+                                            <th>Department</th>
+                                            <th>Fault No</th>
+                                            <th>Fault</th>
+                                            <th>Fault Date</th>
+											                      <th>Current Status</th>
+                                            <th>Rectification Date</th>
+											                      <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {% for fault in updatefaultdetail %}
+                                        <tr>
+                                            <td>{{fault.station}}</td>
+                                            <td>{{fault.department}}</td>
+                                            <td>{{fault.fault_no}}</td>
+                                            <td>{{fault.fault_description}}</td>
+                                            <td>{{fault.fault_date}}</td>
+                                            <td>{{fault.current_status}}</td>
+                                            <td>{{fault.rectification_date}}</td>
+                                            <td><a class="btn btn-sm btn-info"  href="{% url 'edit' fault.id %}" >Update</a></td>
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+{% endblock content %}
+
+
+
+
+
+

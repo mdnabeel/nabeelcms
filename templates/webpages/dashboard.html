@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<title>CMS | Dashboard</title>
+<body style=" background-color:#616463;">
+<main class="container-fluid">
+{% include 'message.html' %}
+ <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Faults</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">{{totalcount}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-3x text-gray-800"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-success text-uppercase mb-1">
+                                                Rectified Faults</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">{{rectifycount}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-3x text-gray-800"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
+                                                Pending Faults</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">{{pendingcount}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-3x text-gray-800"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-warning text-uppercase mb-1">
+                                                Disputed Faults</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">{{disputecount}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-3x text-gray-800"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+
+                
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Content Row -->
+                    <div class="row">               
+
+
+ <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+                <div class="row">
+
+
+            <div class="col-lg-6 mb-4">
+                    <a class=" btn btn-primary card-body card bg-primary text-white shadow  text-left"  href="{% url 'addfault'%}">Add New Fault</a>
+   
+            </div>
+
+
+           
+            <div class="col-lg-6 mb-4">
+                    <a class=" btn btn-success card-body card bg-success text-white shadow  text-left"  href="{% url 'update' %}">Update Fault Status</a>
+   
+            </div>
+
+            
+             <div class="col-lg-6 mb-4">
+                    <a class=" btn btn-warning card-body card bg-warning text-white shadow  text-left"  href="{% url 'search'%}">View / Search Faults</a>
+   
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                    <a class=" btn btn-secondary card-body card bg-secondary text-white shadow  text-left" href="{% url 'export'%}">Export Fault Details (.xlsx)</a>
+   
+            </div>
+
+
+
+{% comment %} 
+            <div class="col-lg-6 mb-4">
+                <div class="btn-group card-body card bg-info text-white shadow " style="height: 4rem; padding:0px;">
+                    <button type="button" class="btn btn-info dropdown-toggle text-left"
+                    data-bs-toggle="dropdown" aria-expanded="false" >
+                        View Faults By Status
+                    </button>
+                <ul class="dropdown-menu dropdown-menu-end col-lg-6 mb-2">
+                <li><a class="dropdown-item card-body card bg-info text-white shadow" href="#">Rectified</a></li>
+                    <li><a class="dropdown-item card-body card bg-info text-white shadow" href="#">Pending</a></li>
+                        <li><a class="dropdown-item card-body card bg-info text-white shadow"href="#">Disputed</a></li>
+                    <li><a class="dropdown-item card-body card bg-info text-white shadow" href="#">Under Observation</a></li>
+                    </ul>
+                </div>
+            </div> {% endcomment %}
+
+                </div>
+            </div>
+
+
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-6 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Pending Faults</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="col-xl-12 col-lg-8">
+
+				<!-- Bar Chart -->
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<h6 class="m-0 font-weight-bold text-primary">Station Chart</h6>
+					</div>
+					<div class="card-body">
+						<div class="chart-bar">
+							<canvas id="myBarChart"></canvas>
+						</div>
+						<hr>
+					</div>
+				</div>
+
+				</div>
+						
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+           
+            <!-- End of Main Content -->
+
+
+       
+        <!-- End of Content Wrapper -->
+
+    
+    <!-- End of Page Wrapper -->
+
+      
+</main>
+
+<script>
+var azppendcount ={{azppendcount}}
+var slmpendcount ={{slmpendcount}}
+var nsppendcount ={{nsppendcount}}
+var naipendcount ={{naipendcount}}
+
+var azprectcount={{azprectcount}}
+var slmrectcount={{slmrectcount}}
+var nsprectcount={{nsprectcount}}
+var nairectcount={{nairectcount}}
+
+var azpdispcount={{azpdispcount}}
+var slmdispcount={{slmdispcount}}
+var nspdispcount={{nspdispcount}}
+var naidispcount={{naidispcount}}
+
+var azpfaultcount={{azpfaultcount}}
+var slmfaultcount={{slmfaultcount}}
+var nspfaultcount={{nspfaultcount}}
+var naifaultcount={{naifaultcount}}
+</script>
+
+ <!-- Page level plugins -->
+    <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+    <!-- Page level custom scripts -->   
+    <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+	<script src="{% static 'js/demo/chart-bar-demo.js' %}"></script>
+
+</body>
+{% endblock content %}

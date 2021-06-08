@@ -1,0 +1,40 @@
+
+header {
+  background: repeating-linear-gradient(45deg, #f0f2ed, #f0f2ed 20px, #f8f4eb 20px, #f8f4eb 40px);
+  box-shadow: 0 4px 6px rgba(0,0,0,.2);  
+  margin-bottom:40px;
+}
+
+.mybrand{
+  font-size: 25px !important;
+}
+.mybutton{
+  padding-left: 80px !important;
+}
+
+
+@media screen and (max-width: 720px) {
+  .logo {
+    margin-left: 16%;  
+  }
+  .mybrand{
+    font-size: 21px !important;
+  }
+  .mybutton{
+    padding-right: 0px !important;
+    padding-left: 5px !important;
+  }
+}
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+
+  .mybutton{
+    display: flex;
+    padding-left: 270px !important;
+  }
+
+  .mob{
+    margin-left: 20px;;
+  }
+}
